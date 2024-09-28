@@ -9,10 +9,10 @@ import com.example.LambdaHandler
 fun main() {
     val handler = LambdaHandler()
     val s = handler.handleRequest(
-        event = mapOf("key" to "value"),
+        event = "hello",
         context = StubContext()
     )
-    println(s)
+    println(s + "from main function")
 }
 
 class StubContext : Context {
