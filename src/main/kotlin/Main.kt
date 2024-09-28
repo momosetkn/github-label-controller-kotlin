@@ -1,16 +1,62 @@
 package momosetkn
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+import com.amazonaws.services.lambda.runtime.ClientContext
+import com.amazonaws.services.lambda.runtime.CognitoIdentity
+import com.amazonaws.services.lambda.runtime.Context
+import com.amazonaws.services.lambda.runtime.LambdaLogger
+import com.example.LambdaHandler
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+fun main() {
+    val handler = LambdaHandler()
+    val s = handler.handleRequest(
+        event = mapOf("key" to "value"),
+        context = StubContext()
+    )
+    println(s)
+}
+
+class StubContext : Context {
+    override fun getAwsRequestId(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun getLogGroupName(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun getLogStreamName(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun getFunctionName(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun getFunctionVersion(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun getInvokedFunctionArn(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun getIdentity(): CognitoIdentity {
+        TODO("Not yet implemented")
+    }
+
+    override fun getClientContext(): ClientContext {
+        TODO("Not yet implemented")
+    }
+
+    override fun getRemainingTimeInMillis(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun getMemoryLimitInMB(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun getLogger(): LambdaLogger {
+        TODO("Not yet implemented")
     }
 }
