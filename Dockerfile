@@ -15,7 +15,7 @@ RUN curl -s "https://get.sdkman.io" | bash
 
 # SDKMAN!の環境変数を設定
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 17.0.12-graal"
+    sdk install java 21.0.4-graal"
 
 # 作業ディレクトリを作成
 WORKDIR /app
